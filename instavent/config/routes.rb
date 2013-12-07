@@ -2,29 +2,17 @@ Instavent::Application.routes.draw do
   
   root 'events#index'
 
-  # get 'events'
+  resources :events
 
-  # get 'events/new'
-
-  # post 'events'
-
-  # get 'events/:id'
-
-
-# Original routes created by Controller generation
-
-  get "events/index"
-  
-  get "events/new"
-  
-  get "events/create"
-  
-  get "events/show"
-  
-  get "events/edit"
-  
-  get "events/update"
-  
-  get "events/destroy"
+#     Prefix Verb   URI Pattern                Controller#Action
+#       root GET    /                          events#index
+#     events GET    /events(.:format)          events#index
+#            POST   /events(.:format)          events#create
+#  new_event GET    /events/new(.:format)      events#new
+# edit_event GET    /events/:id/edit(.:format) events#edit
+#      event GET    /events/:id(.:format)      events#show
+#            PATCH  /events/:id(.:format)      events#update
+#            PUT    /events/:id(.:format)      events#update
+#            DELETE /events/:id(.:format)      events#destroy
 
 end
