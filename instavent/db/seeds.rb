@@ -22,3 +22,7 @@ events.each do |event|
   Event.create(tag: event[:tag])
 end
 puts "Created five events"
+
+
+Photo.destroy_all
+puts "Destroyed all photos"
