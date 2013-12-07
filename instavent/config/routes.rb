@@ -1,13 +1,24 @@
 Instavent::Application.routes.draw do
   
-  ROOT '/#index'
+  root 'events#index'
 
-  GET '/events'
+  # get 'events'
 
-  GET '/events/new'
+  # get 'events/new'
 
-  POST '/events'
+  # post 'events'
 
-  GET '/events/:id'
+  # get 'events/:id'
+
+
+# Original routes created by Controller generation
+
+  get "events/index"
+  get "events/new"
+  get "events/create"
+  get "events/show"
+  get "events/edit"
+  get "events/update"
+  get "events/destroy"
 
 end
