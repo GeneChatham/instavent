@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Postgresql database for Active Record
+gem 'pg'
+
 # Storing private information (keys and such)
 gem 'figaro'
 
