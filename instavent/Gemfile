@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+# Storing private information (keys and such)
+gem 'figaro'
+
+# HTTP stuff
+gem 'unirest'
+
+# Bundle Hirb
+gem 'hirb'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
