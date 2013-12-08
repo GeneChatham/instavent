@@ -8,9 +8,7 @@ class Event < ActiveRecord::Base
   MAX_SHOW = 50
 
   def get_photos
-    # self.start_time << 1386464454
-    # self.end_time << 1386467058 
-    # self.save
+
     key = ENV["CLIENT_ID"]
     next_url = "https://api.instagram.com/v1/tags/#{self.tag}/media/recent?client_id=#{key}"
     count = 0
@@ -28,7 +26,7 @@ class Event < ActiveRecord::Base
           photo.image = data["images"]["thumbnail"]["url"]
           unix_created_time = data["created_time"]
           human_time = Time.at(unix_created_time.to_i)
-          if self.start_time && self.end_time
+          if self.start_time.present? && self.end_time.present?
             if human_time > Chronic.parse(self.start_time) && human_time < Chronic.parse(self.end_time) 
               photo.save
               count += 1

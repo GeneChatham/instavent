@@ -1,12 +1,7 @@
 Instavent::Application.routes.draw do
   
-  get "photos/index"
-  get "photos/new"
-  get "photos/create"
-  get "photos/show"
-  get "photos/edit"
-  get "photos/update"
-  get "photos/destroy"
+
+  
   root 'events#index'
 
   resources :events
