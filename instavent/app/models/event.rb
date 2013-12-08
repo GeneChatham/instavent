@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
 
   validates :tag, presence: true
 
-  MAX_SHOW = 10
+  MAX_SHOW = 25
 
   def get_photos
 
@@ -23,22 +23,23 @@ class Event < ActiveRecord::Base
       next_url = response.body["pagination"]["next_url"]
       response_array = response.body["data"]
 
-      # if event_time_present
-      #   insta_array_last = response.body["data"].last
-      #   earliest_time = insta_array_last["created_time"]
-      # if earliest < event_end_time
       if event_time_present
-        response_array.each do |data|
-          if count < MAX_SHOW
-            @unix_created_time = data["created_time"]
-            human_time = Time.at(@unix_created_time.to_i)
-            if human_time > event_start_time && human_time < event_end_time
-              photo_save(data)
-              count += 1
-            end
-          else
-            break
-          end         
+        insta_array_earliest_time = response_array.last["created_time"].to_i
+        # earliest_time = insta_array_last["created_time"]
+        earilest_human_time = Time.at(insta_array_earliest_time)
+        if earilest_human_time < event_end_time
+          response_array.each do |data|
+            if count < MAX_SHOW
+              @unix_created_time = data["created_time"]
+              human_time = Time.at(@unix_created_time.to_i)
+              if human_time > event_start_time && human_time < event_end_time
+                photo_save(data)
+                count += 1
+              end
+            else
+              break
+            end         
+          end
         end
       else
         response_array.each do |data|
@@ -51,7 +52,6 @@ class Event < ActiveRecord::Base
           end
         end         
       end
-      # end
     end
   end
 

@@ -1,4 +1,6 @@
 <h1>#<%= @event.tag %></h1>
+<h3><%= @event.start_time %></h3>
+<h3><%= @event.end_time %></h3>
 
 <% @event.photos.all.each do |photo| %>
     <img src="<%= photo.image %>">
