@@ -26,9 +26,14 @@ class Event < ActiveRecord::Base
           photo = Photo.new
           photo.event_id = self.id
           photo.image = data["images"]["thumbnail"]["url"]
-          unix_created_time = data["caption"]["created_time"]
+          unix_created_time = data["created_time"]
           human_time = Time.at(unix_created_time.to_i)
-          if human_time > Chronic.parse(self.start_time) && human_time < Chronic.parse(self.end_time) 
+          if self.start_time && self.end_time
+            if human_time > Chronic.parse(self.start_time) && human_time < Chronic.parse(self.end_time) 
+              photo.save
+              count += 1
+            end
+          else
             photo.save
             count += 1
           end
