@@ -7,6 +7,11 @@ class Event < ActiveRecord::Base
 
   MAX_SHOW = 25
 
+  def sort_photos
+    sorted = self.photos.sort_by &:time
+    sorted.reverse!  
+  end
+
   def get_photos
 
     key = ENV["CLIENT_ID"]

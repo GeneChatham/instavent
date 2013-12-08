@@ -43,24 +43,25 @@
       <div class="headline">
         <div class="container">
           <h1>EVENTH#SHR</h1>
-          <h2>
+            <h2>
 						<%= form_for @event do |f| %>
-						  <p># <%= f.text_field :tag, :placeholder => " eventhashtag" %></p>
-							
-						  <%= f.label :start_time, "starts at:" %>
-						  <%= f.text_field :start_time, :placeholder => "optional" %>
+						  # <%= f.text_field :tag, :placeholder => " eventhashtag" %>
+					
+          
+						  <h3><%= f.label :start_time, "starts at:" %>
+						  <%= f.text_field :start_time, :placeholder => "optional" %></h3>
 
-						  <%= f.label :end_time, "ends at:" %>
+						  <h3><%= f.label :end_time, "ends at:" %>
 						  <%= f.text_field :end_time, :placeholder => "optional"  %>
-						  <%= f.submit "VIEW"%>
-
+						  <%= f.submit "VIEW"%></h3>
+           
 						  <h3><div class="suggest"></a>Want a suggestion?</div></h3>
 							<% @events.each do |event| %>
 							<p class="suggested-tags"><%= link_to event.tag, event_path(event.id) %></p>
 							<% end %>
 
 						<% end %>
-          </h2>
+            </h2>
         </div>
       </div>
 
