@@ -23,6 +23,5 @@ events.each do |event|
 end
 puts "Created five events"
 
-
 Photo.destroy_all
 puts "Destroyed all photos"
