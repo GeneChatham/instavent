@@ -12,7 +12,7 @@ puts "Destroyed all events"
 events = [
   {tag: "halloween2013" },
   {tag: "worldseries" },
-  {tag: "mkshackathon" },
+#  {tag: "mkshackathon" },
   {tag: "mks3" },
   {tag: "yolo" }
 ]
