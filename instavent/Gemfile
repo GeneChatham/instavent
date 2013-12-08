@@ -9,6 +9,13 @@ group :development do
   gem 'pry-rails'
 end
 
+# Bootstrap Sass for front-end framework
+# using a tutorial: http://railsapps.github.io/twitter-bootstrap-rails.html
+gem 'bootstrap-sass'
+	group :development do
+		gem 'rails_layout'
+	end
+
 # Chronic time handler
 gem 'chronic'
 
