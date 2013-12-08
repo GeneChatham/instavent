@@ -3,9 +3,9 @@
 <h3><%= @event.end_time %></h3>
 
 <% @event.photos.all.each do |photo| %>
-    <img src="<%= photo.image %>">
-    <%= Time.at(photo.time).strftime("%m/%d/%Y at %I:%M%p")%>
+    <img src="<%= photo.image %>" style="float: left">
+    <!-- Ruby Script to show time stamps -->
+    <!-- Time.at(photo.time).strftime("%m/%d/%Y at %I:%M%p") -->
+
 
 <% end %>
-
-<p>Find me in app/views/photos/show.html.erb</p>

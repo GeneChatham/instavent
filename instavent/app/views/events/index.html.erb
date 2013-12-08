@@ -1,20 +1,119 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<h1>List of Event Tags</h1>
-<% @events.each do |event| %>
-<p><%= event.tag %></p>
-<p><%= link_to "Event", event_path(event.id) %></p>
-<% end %>
+    <title>EventHashr</title>
 
-<%= form_for @event do |f| %>
-  <%= f.label :tag %>
-  <%= f.text_field :tag %>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
 
-  <%= f.label :start_time %>
-  <%= f.text_field :start_time %>
+    <!-- Custom CSS for the 'One Page Wonder' Template -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+  </head>
 
-  <%= f.label :end_time %>
-  <%= f.text_field :end_time %>
-  <%= f.submit %>
-<% end %>
+  <body>
+
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#index">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="header-image">
+
+      <div class="headline">
+        <div class="container">
+          <h1>EVENTH#SHR</h1>
+          <h2>
+						<%= form_for @event do |f| %>
+						  <p># <%= f.text_field :tag, :placeholder => " eventhashtag" %></p>
+							
+						  <%= f.label :start_time, "starts at:" %>
+						  <%= f.text_field :start_time, :placeholder => "optional" %>
+
+						  <%= f.label :end_time, "ends at:" %>
+						  <%= f.text_field :end_time, :placeholder => "optional"  %>
+						  <%= f.submit "VIEW"%>
+
+						  <h3><div class="suggest"></a>Want a suggestion?</div></h3>
+							<% @events.each do |event| %>
+							<p><%= link_to event.tag, event_path(event.id) %></p>
+							<% end %>
+
+						<% end %>
+          </h2>
+        </div>
+      </div>
+
+    </div><!-- /header-image -->
+
+    <div class="container">
+
+      <!-- START THE FEATURETTES -->
+<!-- 
+      <hr class="featurette-divider">
+
+      <div class="featurette" id="about">
+        <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+        <h2 class="featurette-heading">This First Heading <span class="text-muted">Will Catch Your Eye</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette" id="services">
+        <img class="featurette-image img-circle img-responsive pull-left" src="http://placecreature.com/500/500">
+        <h2 class="featurette-heading">The Second Heading <span class="text-muted">Is Pretty Cool Too.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="featurette" id="contact">
+        <img class="featurette-image img-circle img-responsive pull-right" src="http://placecreature.com/500/500">
+        <h2 class="featurette-heading">The Third Heading <span class="text-muted">Will Seal the Deal.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      </div> -->
+
+      <!-- /END THE FEATURETTES -->
+
+      <hr>
+
+      <!-- FOOTER -->
+      <footer>
+        <p>Copyright &copy; Andrew, Gene &amp; Mateo 2013</p>
+      </footer>
+      <!-- /END OF FOOTER -->
+
+    </div><!-- /container -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js">
+	    $('#suggest').click('click', function (e) {
+	      alert("Yup, it's a button.");
+	    });
+    </script>
+
+  </body>
+
+</html>
