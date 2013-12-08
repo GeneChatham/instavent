@@ -34,6 +34,6 @@ class EventsController < ApplicationController
 
   private 
   def event_params
-    params.require(:event).permit(:tag)
+    params.require(:event).permit(:tag, :start_time, :end_time)
   end
 end

@@ -9,6 +9,9 @@ group :development do
   gem 'pry-rails'
 end
 
+# Chronic time handler
+gem 'chronic'
+
 # Postgresql database for Active Record
 gem 'pg'
 
