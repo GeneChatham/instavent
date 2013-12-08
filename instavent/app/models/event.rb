@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
     response_array.each do |data|
       photo = Photo.new
       photo.event_id = self.id
-      photo.image = data["images"]["standard_resolution"]["url"]
+      photo.image = data["images"]["thumbnail"]["url"]
       photo.save
     end    
   end
