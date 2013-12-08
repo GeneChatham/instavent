@@ -56,7 +56,7 @@
 
 						  <h3><div class="suggest"></a>Want a suggestion?</div></h3>
 							<% @events.each do |event| %>
-							<p><%= link_to event.tag, event_path(event.id) %></p>
+							<p class="suggested-tags"><%= link_to event.tag, event_path(event.id) %></p>
 							<% end %>
 
 						<% end %>
@@ -108,11 +108,7 @@
 
     <!-- JavaScript -->
     <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js">
-	    $('#suggest').click('click', function (e) {
-	      alert("Yup, it's a button.");
-	    });
-    </script>
+    <script src="js/bootstrap.js"></script>
 
   </body>
 
