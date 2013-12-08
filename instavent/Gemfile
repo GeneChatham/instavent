@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-# Simple form 
-gem 'simple_form'
-
 group :development do
   gem 'better_errors'
 end

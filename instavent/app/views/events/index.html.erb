@@ -7,3 +7,8 @@
 <p><%= link_to "Event", event_path(event.id) %></p>
 <% end %>
 
+<%= form_for @event do |f| %>
+  <%= f.label :tag %>
+  <%= f.text_field :tag %>
+  <%= f.submit %>
+<% end %>
