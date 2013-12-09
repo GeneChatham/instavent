@@ -7,6 +7,14 @@ class Event < ActiveRecord::Base
 
   MAX_SHOW = 25
 
+  # def initialize
+  #   @api_calls_array = []
+  # end
+
+  # def api_calls
+  #   @api_calls_array
+  # end
+
   def sort_photos
     sorted = self.photos.sort_by &:time
     sorted.reverse!  
@@ -20,10 +28,12 @@ class Event < ActiveRecord::Base
     event_start_time = Chronic.parse(self.start_time)
     event_end_time = Chronic.parse(self.end_time)
     @unix_created_time = 0
+    @api_calls_array = []
     event_time_present = self.start_time.present? && self.end_time.present?
 
 
     while next_url && count < MAX_SHOW
+      @api_calls_array << next_url
       response = Unirest.get(next_url)
       next_url = response.body["pagination"]["next_url"]
       response_array = response.body["data"]
@@ -65,6 +75,7 @@ class Event < ActiveRecord::Base
     photo.event_id = self.id
     photo.image = data["images"]["standard_resolution"]["url"]
     photo.time = @unix_created_time.to_i
+    photo.caption = @api_calls_array.length
     photo.save
 
   end

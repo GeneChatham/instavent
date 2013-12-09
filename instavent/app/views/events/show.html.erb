@@ -2,8 +2,11 @@
 <h3><%= @event.start_time %></h3>
 <h3><%= @event.end_time %></h3>
 
-<% @event.sort_photos.each do |photo| %>
+<% @event.photos.all.each do |photo| %>
+<div>
     <img src="<%= photo.image %>" class="event-photos">
+    <p><%= photo.caption %></p>
+</div>
     <!-- Ruby Script to show time stamps -->
     <!-- Time.at(photo.time).strftime("%m/%d/%Y at %I:%M%p") -->
 
